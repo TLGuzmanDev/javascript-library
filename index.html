@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>.js Library</title>
+        <link rel="stylesheet" href="styles/main.css">
+        <script src="scripts/app.js"></script>
+    </head>
+    <body>
+        <header id="header">
+            <h1>Library</h1>
+        </header>
+        <main id="main">
+            <section id="add-book">
+                <h2>Add a Book</h2>
+                <form>
+                    <label for="title">Enter book title: </label>
+                    <input type="text" name="title" id="title" required>
+                    <label for="author">Enter book author: </label>
+                    <input type="text" name="author" id="author" required>
+                    <label for="pages">Enter number of pages in the book: </label>
+                    <input type="text" name="pages" id="pages" required>
+                    <div id="form-radio">
+                        <h2>Have you read this book?</h2>
+                        <input type="radio" name="read" id="yes" value="true">
+                        <label for="yes">yes</label>
+                        <input type="radio" name="read" id="no" value="false" checked>
+                        <label for="no">no</label>
+                    </div>
+                    <input type="submit" value="Sumbit">
+                </form>
+            </section>
+            <section id="book-display">
+                <h2>Book Display</h2>
+            </section>
+        </main>
+    </body>
+</html>
