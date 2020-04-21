@@ -106,3 +106,8 @@ showFormBtn.addEventListener('click', () => {
         form.style.display = 'none';
     }
 });
+
+addBookToLibrary('The Great Gatsby', 'F. Scott Fitzgerald', 218, false, myLibrary.length);
+addBookToLibrary('The Catcher in the Rye', 'J. D. Salinger', 234, false, myLibrary.length);
+addBookToLibrary('Catch-22', 'Joseph Heller', 453, false, myLibrary.length);
+render();
