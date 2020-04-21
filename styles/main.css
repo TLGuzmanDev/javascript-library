@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #30475e;
+    color: #ececec;
+    min-width: 450px;
+}
+
+#header {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    font-family: 'Pacifico', cursive;
+    border-bottom: 5px solid #c1a57b;
+}
+
+#header h1 {
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: 60px;
+    color: #c1a57b;
+}
+
+#add-book {
+    margin: 0 auto;
+    width: 80%;
+    font-family: 'Oswald', sans-serif;
+}
+
+#add-book button {
+	display: block;
+	margin: 10px auto;
+	padding: 12px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #222831;
+    color: #c1a57b;
+	border: none;
+	border-radius: 5px;
+}
+
+#book-form {
+    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+    padding: 20px;
+    font-size: 20px;
+    border-bottom: 5px solid #c1a57b;
+}
+
+#book-form label {
+    grid-column: 2/3;
+    text-align: right;
+    padding: 0.5em 0.5em 0.5em 0;
+}
+
+#book-form input[type=text], #book-form input[type=number] {
+    grid-column: 3/4;
+    padding: 0.7em;
+    margin: 0.5rem 0;
+}
+
+#book-form input[type=submit]{
+    grid-column: 2/4;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #222831;
+    color: #c1a57b;
+	border: none;
+	border-radius: 5px;
+}
+
+#radio {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+}
+
+#book-display {
+    font-family: 'Oswald', sans-serif;
+    margin-top: 20px;
+}
+
+#books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book {
+    display: grid;
+    grid-template-rows: minmax(0, 3fr) minmax(0,2fr) 1fr 1fr 45px 45px;
+	height: 300px;
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    background-color: #222831;
+    color: #ececec;
+    border: 5px solid #c1a57b;
+    border-radius: 10px;
+    font-size: 20px;
+    overflow: auto;
+}
+
+.book .title {
+    width: 90%;
+    overflow: auto;
+    margin: 0 auto;
+    font-family: 'Pacifico', cursive;
+    border-bottom: 3px solid #30475e;
+}
+
+.book .author {
+    overflow: auto;
+}
+
+.book button {
+    margin: 5px auto;
+    padding: 0;
+    width: 75%;
+    background-color: #c1a57b;
+    color: #222831;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+button:active, input[type=submit]:active {
+    transform: scale(0.95);
+    filter: brightness(80%);
+}
