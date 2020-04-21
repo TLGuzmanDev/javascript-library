@@ -1,6 +1,7 @@
 let myLibrary = [];
 let form = document.querySelector('#book-form');
 let bookDisplay = document.querySelector('#books');
+let showFormBtn = document.querySelector('#add-book button');
 
 function Book(title, author, pages, read, index=undefined) {
     this.title = title;
@@ -12,7 +13,7 @@ function Book(title, author, pages, read, index=undefined) {
 
 Book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.pages} pages, `
-    + `${(this.read) ? 'has read': 'has not read yet'}`;
+    + `${(this.read) ? 'Have Read': 'Have Not Read'}`;
 };
 
 Book.prototype.toggleRead = function() {
@@ -59,22 +60,22 @@ function createBookElement(book) {
 
     let author = document.createElement('div');
     author.classList.toggle('author');
-    author.textContent = book.author;
+    author.textContent = 'by '+ book.author;
     element.appendChild(author);
 
     let pages = document.createElement('div');
     pages.classList.toggle('pages');
-    pages.textContent = book.pages;
+    pages.textContent = book.pages + ' pages';
     element.appendChild(pages);
 
     let read = document.createElement('div');
-    read.classList.toggle('pages');
-    read.textContent = (book.read) ? 'has read': 'has not read yet';
+    read.classList.toggle('read');
+    read.textContent = (book.read) ? 'Have Read': 'Have Not Read';
     element.appendChild(read);
 
     let readToggleBtn = document.createElement('button');
     readToggleBtn.type = 'button';
-    readToggleBtn.textContent = 'Toggle read on Book';
+    readToggleBtn.textContent = 'Toggle Read';
     readToggleBtn.addEventListener('click', () => {
         book.toggleRead();
         console.log(`toggled read on: ${book.index}`)
@@ -97,3 +98,11 @@ function deleteBook(book) {
     console.log(`deleted book: ${book.info()}, index: ${book.index}`);
     render();
 }
+
+showFormBtn.addEventListener('click', () => {
+    if (form.style.display === 'none') {
+        form.style.display = 'grid';
+    } else {
+        form.style.display = 'none';
+    }
+});
