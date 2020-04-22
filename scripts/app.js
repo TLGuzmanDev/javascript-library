@@ -3,22 +3,25 @@ let form = document.querySelector('#book-form');
 let bookDisplay = document.querySelector('#books');
 let showFormBtn = document.querySelector('#add-book button');
 
-function Book(title, author, pages, read, index=undefined) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.index = index;
+class Book {
+    constructor(title, author, pages, read, index=undefined) {
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+        this.index = index;
+        this.author = author;
+    }
+
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, `
+        + `${(this.read) ? 'Have Read': 'Have Not Read'}`;
+    }
+
+    toggleRead() {
+        (this.read) ? this.read = false: this.read = true;
+    }
 }
 
-Book.prototype.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, `
-    + `${(this.read) ? 'Have Read': 'Have Not Read'}`;
-};
-
-Book.prototype.toggleRead = function() {
-    (this.read) ? this.read = false: this.read = true;
-};
 
 function addBookToLibrary(title, author, pages, read, index) {
     book = new Book(title, author, pages, read, index);
@@ -35,7 +38,7 @@ form.addEventListener('submit', function(e) {
     let read = data.get('read');
     read = Number(read) ? true: false;
 
-    let book = addBookToLibrary(title, author, pages, read, myLibrary.length);
+    addBookToLibrary(title, author, pages, read, myLibrary.length);
     render();
     e.preventDefault();
 });
